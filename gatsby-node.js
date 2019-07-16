@@ -1,7 +1,10 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+// //Absolute imports: instead of (import ABC from '../../components/ABC'), it helps to (import ABC from 'components/ABC')
+const path = require('path');
 
-// You can delete this file if you're not using it
+exports.onCreateWebpackConfig = ({ state, actions }) => {
+    actions.setWebpackConfig({
+        resolve: {
+            modules: [path.resolve(__dirname, "src"), "node_modules"],
+        }
+    })
+}
