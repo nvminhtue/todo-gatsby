@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import styled from "styled-components"
 
 import Layout from '../components/layout';
@@ -12,18 +12,20 @@ const Title = styled.h1`
   -webkit-background-clip: text;
 `;
 
-const Todos = [{content: 'aaa'}, {content: 'bbb'}];
-
 const IndexPage = () => {
-  const [noob, setNoob] = useState('ahihi');
+  const [Todos, setTodo] = useState({});
+  const [newTodo, setContent] = useState('');
+  useEffect({
+    
+  }, [Todos])
   return (
     <Container>
-      <Title>Hello, This is Todo app made by Gatsby {noob}</Title>
-        <TodoList todos = {Todos} />
-      {/* <div>
-        <input onChange={(e) => setNoob(e.target.value)}/>
-        <button>Click me</button>
-      </div> */}
+      <Title>Hello, This is Todo app made by Gatsby</Title>
+      <div>
+        <input onChange={(e) => setContent(e.target.value !== '' && e.target.value)}/>
+        <button onClick={setTodo({...Todos, content: newTodo})}>Click me</button>
+      </div>
+      <TodoList todos={Todos} />
     </Container>
 )}
 
