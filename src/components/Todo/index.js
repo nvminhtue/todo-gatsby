@@ -10,8 +10,9 @@ const WrapTodo = styled.div`
     border-radius: 4px;
 `;
 
-export default ({todos}) => (
+export default ({todos}) => {
+    return(
     <WrapTodo>
         <TodoElement todos={todos} key={todos.key}/>
     </WrapTodo>
-)
+)}
