@@ -1,5 +1,6 @@
-import React, {useState, useEffect} from "react"
+import React, {useState} from "react"
 import styled from "styled-components"
+import '../components/layout.css'
 
 import Layout from '../components/layout';
 import TodoList from "../components/Todo";
@@ -13,17 +14,28 @@ const Title = styled.h1`
 `;
 
 const IndexPage = () => {
-  const [Todos, setTodo] = useState({});
+  const [Todos, setTodo] = useState([]);
   const [newTodo, setContent] = useState('');
-  useEffect({
-    
-  }, [Todos])
+
+  const handleSubmit = () => {
+    setTodo([
+      ...Todos,
+      {content: newTodo}
+    ])
+  }
+
+// const Todos = [{content: "asdasd"}, {content: 'aaaa'}]
+
+  const handleChange = (value) => {
+    value && setContent(value);
+  }
+
   return (
     <Container>
       <Title>Hello, This is Todo app made by Gatsby</Title>
       <div>
-        <input onChange={(e) => setContent(e.target.value !== '' && e.target.value)}/>
-        <button onClick={setTodo({...Todos, content: newTodo})}>Click me</button>
+        <input onChange={(e) => handleChange(e.target.value)}/>
+        <button onClick={handleSubmit}>Click me</button>
       </div>
       <TodoList todos={Todos} />
     </Container>

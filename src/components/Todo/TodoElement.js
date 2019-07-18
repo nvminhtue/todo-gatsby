@@ -15,14 +15,12 @@ const WrapElement = styled.div`
 
 const Items = styled.label`
     display: block;
+    width: 100%;
     position: relative;
     padding-left: 35px;
     margin-bottom: 12px;
     cursor: pointer;
     font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
 `;
 
@@ -32,17 +30,42 @@ const Checkbox = styled.input`
     cursor: pointer;
     height: 0;
     width: 0;
+
+    &:checked {
+        .checkmark {
+            background-color: #2196F3;
+        }
+        + span  {
+            border: 1px solid red;
+            background: white;
+
+            &:after {
+                opacity: 1;
+            }
+        }
+    }
 `;
 
 const Checkmark = styled.span`
+    display: block;
     position: absolute;
     top: 0;
-    left: 0;
+    right: 10px;
     height: 25px;
     width: 25px;
-    background-color: #eee;
-    :hover {
-        background-color: #ccc;
+    border-radius: 100%;
+    background-color: white;
+    border: 1px solid red;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    &:after {
+        opacity: 0;
+        color: red;
+        font-family: "FontAwesome";
+        content: '\f00c';
+        font-size: 16px;
+        transition: all .3s;
     }
 `;
 
@@ -53,8 +76,8 @@ export default ({todos}) => (
             return (
                 <WrapElement key={index}>
                 <Items>
-                    <Checkbox type="checkbox" />
                     {todo.content}
+                    <Checkbox type="checkbox" />
                     <Checkmark />
                 </Items>
             </WrapElement>
