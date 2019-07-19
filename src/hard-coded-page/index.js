@@ -12,7 +12,6 @@ export const query = graphql`
 console.log(query);
 
 export default (props) => {
-    // debugger
     const todo = props.data.todosJson;
     return (<div>
         <div>This is hard coded template</div>

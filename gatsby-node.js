@@ -10,7 +10,7 @@
 // }
 
 
-exports.createPages = ({ actions:  { createPage }, graphql}) => {
+exports.createPages = async ({ actions:  { createPage }, graphql}) => {
     const results = await graphql(`
         {
             allTodosJson {
