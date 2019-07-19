@@ -1,4 +1,5 @@
 import React, {useState} from "react"
+import { Link} from 'gatsby';
 import styled from "styled-components"
 
 import '../components/layout.css'
@@ -14,6 +15,15 @@ const Title = styled.h1`
   -webkit-background-clip: text;
 `;
 
+const Footer = styled.div`
+  bottom: 0;
+  display: flex;
+  position: absolute;
+  justify-content: space-around;
+  background-color:hsla(0, 0%, 0%, 0.5);
+  width: 100%;
+`;
+
 const IndexPage = () => {
   const [Todos, setTodo] = useState([]);
 
@@ -22,6 +32,10 @@ const IndexPage = () => {
       <Title>Hello, This is Todo app made by Gatsby</Title>
       <AddTodo { ...{Todos, setTodo }}/>
       <TodoList todos={Todos} />
+      <Footer>
+        <Link to='/todo/first-footer'>Footer 1</Link>
+        <Link to='/todo/second-footer'>Footer 2</Link>
+      </Footer>
     </Container>
 )}
 
