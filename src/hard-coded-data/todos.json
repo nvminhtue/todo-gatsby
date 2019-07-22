@@ -1,10 +1,10 @@
 [
     {
-        "content": "First thing to do",
-        "slug": "first"
+        "content": "First Footer",
+        "slug": "first-footer"
     },
     {
-        "content": "Second thing to do",
-        "slug": "second"
+        "content": "Second Footer",
+        "slug": "second-footer"
     }
 ]

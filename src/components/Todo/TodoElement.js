@@ -2,7 +2,6 @@ import React from 'react';
 import styled, {css} from 'styled-components';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
-import * as Fa from '@fortawesome/free-solid-svg-icons';
 
 const CheckIcon = styled(FontAwesomeIcon)`
     font-weight: 900;
@@ -11,6 +10,7 @@ const CheckIcon = styled(FontAwesomeIcon)`
 const WrapElement = styled.div`
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 50px;
     width: 100%;
     font-weight: 200;
@@ -28,7 +28,7 @@ const Items = styled.label`
     display: block;
     width: 100%;
     position: relative;
-    padding-left: 35px;
+    padding-left: 10px;
     cursor: pointer;
     font-size: 22px;
     user-select: none;
@@ -70,14 +70,14 @@ const Checkmark = styled.span`
     align-items: center;
     justify-content: center;
     &::after {
+        font-family: 'Font Awesome\ 5 Free';
+        font-weight: 900;
         ${props => css`
             content:  "\\${props.icon.icon[3]}";
         `}
         color: red;
         opacity: 0;
         transition: all .3s;
-        font-family: 'Font Awesome\ 5 Free';
-        font-weight: 900;
     }
 `;
 
@@ -87,12 +87,12 @@ export default ({todos}) => (
             todos.length > 0 ? (todos.map((todo, index) => {
             return (
                 <WrapElement key={index}>
-                <Items>
-                    {todo.content}
-                    <Checkbox type="checkbox" />
-                    <Checkmark icon={faCheck} />
-                </Items>
-            </WrapElement>
+                    <Items>
+                        {todo.content}
+                        <Checkbox type="checkbox" />
+                        <Checkmark icon={faCheck} />
+                    </Items>
+                </WrapElement>
             )
         })) : (
             <WrapElement>Nothing to show</WrapElement>
